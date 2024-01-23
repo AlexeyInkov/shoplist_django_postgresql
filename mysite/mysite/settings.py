@@ -21,6 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-+npxq#kj6)c3vk3-+z^ub2%!=li_^n$665%3#^z2yh3^ar6i@3"
+CSRF_COOKIE_MASKED = True
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,7 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "shoplist",
+    "shoplist.apps.ShoplistConfig",
 ]
 
 MIDDLEWARE = [
@@ -110,8 +111,11 @@ TIME_ZONE = "UTC"
 
 USE_I18N = True
 
+USE_L10N = True
+
 USE_TZ = True
 
+USE_DEPRECATED_PYTZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
