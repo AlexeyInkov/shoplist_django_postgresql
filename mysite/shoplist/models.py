@@ -11,10 +11,10 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Product(pk={self.pk}, name={self.name!r})"
+        return self.name
 
 
 class ShoppingListItem(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     count = models.IntegerField(default=1)
