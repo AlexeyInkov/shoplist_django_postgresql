@@ -1,0 +1,20 @@
+{% extends 'shoplist/base.html' %}
+
+{% block title %}
+  Update item
+{% endblock %}
+
+{% block body %}
+  <h1>Update item</h1>
+  <div>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Update</button>
+    </form>
+  </div>
+  <div>
+    <a href="{% url 'shoplist:list_items' %}"
+    >Back to shopping list </a>
+  </div>
+{% endblock %}

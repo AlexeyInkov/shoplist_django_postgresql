@@ -1,0 +1,20 @@
+{% extends 'shoplist/base.html' %}
+
+{% block title %}
+    Create item
+{% endblock %}
+
+{% block body %}
+<h1>Create a new items:</h1>
+
+<div>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Create</button>
+    </form>
+</div>
+<div>
+    <a href="{% url 'shoplist:list_items' %}">Back to shopping list</a>
+</div>
+{% endblock %}
