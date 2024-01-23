@@ -1,6 +1,6 @@
 # created by virtualenv automatically
-.venv/
-.idea/
-.git/
+/.venv/
+/.idea/
+/.git/
 .env
 
