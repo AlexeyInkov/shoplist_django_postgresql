@@ -1,0 +1,60 @@
+{% extends 'shoplist/base.html' %}
+
+{% block title %}
+  Shopping list
+{% endblock %}
+
+{% block body %}
+  <h1>Shopping list:</h1>
+  {% if object_list %}
+
+    <div>
+       <form action="" method="get">
+        {{ filter.form.as_p }}
+        <input type="submit" />
+        </form>
+       <table border="1" cellpadding="4" cellspacing="0">
+
+         <tr>
+             <th>
+                <a href="{% url 'shoplist:list_items' %}?ordering=product__name&order={% if order == 'desc' %}asc{% else %}desc{% endif %}">
+                    Name(Price)</a>
+             </th>
+             <th>
+                 <a href="{% url 'shoplist:list_items' %}?ordering=count&order={% if order == 'desc' %}asc{% else %}desc{% endif %}">
+                    Count</a>
+             </th>
+             <th>&nbsp;</th><th>&nbsp;</th>
+         </tr>
+
+    {% for item in filter.qs %}
+      <tr>
+        <td>
+          {{ item.product.name }}({{item.product.price}} p.)
+        </td>
+        <td>
+          {{ item.count }}
+        </td>
+        <td>
+          <a href="{% url 'shoplist:update_item' pk=item.pk %}">update</a>
+        </td>
+        <td>
+          <a href="{% url 'shoplist:delete_item' pk=item.pk %}">del</a>
+        </td>
+      </tr>
+
+
+
+    {% endfor %}
+
+    </div>
+
+  {% else %}
+    <h3>No products yet</h3>
+  {% endif %}
+
+  <div>
+    <a href="{% url 'shoplist:add_item' %}"
+      >Add a new product</a>
+  </div>
+{% endblock %}

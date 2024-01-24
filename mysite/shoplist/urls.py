@@ -17,14 +17,11 @@ Including another URLconf
 from django.urls import path
 from .views import ItemListView, ItemCreateView, ItemUpdateView, ItemDeleteView
 
-
-
-app_name = 'shoplist'
-
+app_name = "shoplist"
 
 urlpatterns = [
-    path("items/", ItemListView.as_view(), name='list_items'),
-    path("items/add/", ItemCreateView.as_view(), name='add_item'),
-    path("items/<int:pk>/update/", ItemUpdateView.as_view(), name='update_item'),
-    path("items/<int:pk>/delete/", ItemDeleteView.as_view(), name='delete_item'),
+    path("items/", ItemListView.as_view(), name="list_items"),
+    path("items/add/", ItemCreateView.as_view(), name="add_item"),
+    path("items/<int:pk>/update/", ItemUpdateView.as_view(), name="update_item"),
+    path("items/<int:pk>/delete/", ItemDeleteView.as_view(), name="delete_item"),
 ]
