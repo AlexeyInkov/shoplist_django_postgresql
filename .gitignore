@@ -3,4 +3,4 @@
 /.idea/
 /.git/
 .env
-
+*.sqlite3
